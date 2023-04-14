@@ -16,4 +16,18 @@ import { DallorSchema, Dallor } from './dallor.schema';
       httpsAgent: new Agent({
         rejectUnauthorized: false
       }),
-      
+      transformResponse: [
+        function (data) {
+          // Dols whatever you want to transform the data
+          return JSON.parse(data);
+        }
+      ]
+    }),
+    MongooseModule.forFeature([{name : Dallor.name, schema : DallorSchema}]),
+  ],
+    controllers: [AppController],
+    providers: [AppService],
+  
+  })
+  export class AppModule {}
+  
