@@ -22,4 +22,11 @@ import { DallorSchema, Dallor } from './dallor.schema';
         }
       ]
     }),
-    
+    MongooseModule.forFeature([{name : Dallor.name, schema : DallorSchema}]),
+],
+  controllers: [AppController],
+  providers: [AppService],
+
+})
+export class AppModule {}
+
