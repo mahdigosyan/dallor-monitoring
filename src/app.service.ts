@@ -53,4 +53,12 @@ export class AppService{
                 return value
             })
         }
-        
+        return {
+            dallor ,
+            diff : increases,
+            avg : (latestPrice.reduce((p , c) => p+c, 0) / latestPrice.length).toFixed(3),
+            count : latestPrice.length,
+        }
+    }
+}
+
